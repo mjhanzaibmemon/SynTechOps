@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynTechOps LLC — DevOps, Cloud Infrastructure & Full-Stack Engineering</title>
+    <meta name="description" content="SynTechOps LLC — Production-grade DevOps, AWS & Linux server infrastructure, Cloudflare security hardening, and full-stack web development for ambitious businesses worldwide.">
+    <meta name="keywords" content="DevOps, AWS, Linux server administration, Cloudflare, Docker, Nginx, server hardening, full-stack development, SynTechOps">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🚀</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #6366f1, #8b5cf6);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #818cf8, #a78bfa);
+        }
+
+        /* Animated Gradient Background */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0a0a0f, #1a0f2e, #0f1a3d, #1a0f3d);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glow Effects */
+        .glow {
+            box-shadow: 0 0 50px rgba(99, 102, 241, 0.5);
+        }
+
+        .glow-purple {
+            box-shadow: 0 0 80px rgba(139, 92, 246, 0.4);
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 60px rgba(34, 211, 238, 0.4);
+        }
+
+        /* Glass Morphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-cyan {
+            background: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Animated Border */
+        .animated-border {
+            position: relative;
+            background: linear-gradient(#0a0a0f, #0a0a0f) padding-box,
+                        linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899) border-box;
+            border: 2px solid transparent;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(99, 102, 241, 0.8);
+                transform: scale(1.05);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        /* Particle Animation */
+        .particle {
+            position: absolute;
+            background: rgba(99, 102, 241, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Hover Effects */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+        }
+
+        /* Button Effects */
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Rotating Animation */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotate-slow {
+            animation: rotate 20s linear infinite;
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Section Padding */
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Grid Pattern Background */
+        .grid-pattern {
+            background-image:
+                linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Service Card Hover */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .service-icon {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Stats Counter */
+        .stat-number {
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Loading dots */
+        .typing::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Spotlight */
+        .spotlight {
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+        }
+
+        /* Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee {
+            animation: marquee 30s linear infinite;
+        }
+
+        /* Tech Stack Icons */
+        .tech-icon {
+            filter: grayscale(100%) opacity(0.5);
+            transition: all 0.3s;
+        }
+
+        .tech-icon:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
+        }
+
+        /* Hero Title Animation */
+        .hero-title {
+            background: linear-gradient(
+                90deg,
+                #ffffff 0%,
+                #6366f1 25%,
+                #8b5cf6 50%,
+                #ec4899 75%,
+                #ffffff 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center font-bold text-white text-xl glow group-hover:scale-110 transition-transform">
+                    S
+                </div>
+                <div>
+                    <div class="text-xl font-bold gradient-text">SynTechOps</div>
+                    <div class="text-xs text-gray-400 -mt-1">LLC</div>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+                <a href="#process" class="text-gray-300 hover:text-white transition-colors">Process</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-white transition-colors">Portfolio</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#contact" class="btn-primary px-6 py-2.5 rounded-full text-white font-semibold hover-glow">
+                    <span>Get Started</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden text-white">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden fixed top-0 right-0 h-screen w-72 glass-strong p-8 pt-20">
+            <button id="closeMenu" class="absolute top-6 right-6 text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="flex flex-col space-y-6">
+                <a href="#home" class="text-gray-300 hover:text-white transition-colors text-lg">Home</a>
+                <a href="#services" class="text-gray-300 hover:text-white transition-colors text-lg">Services</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors text-lg">About</a>
+                <a href="#process" class="text-gray-300 hover:text-white transition-colors text-lg">Process</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-white transition-colors text-lg">Portfolio</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-lg">Contact</a>
+                <a href="#contact" class="btn-primary px-6 py-3 rounded-full text-white font-semibold text-center mt-4">
+                    <span>Get Started</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden">
+        <!-- Animated Background Orbs -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 float"></div>
+            <div class="absolute top-40 right-20 w-96 h-96 bg-indigo-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-20 left-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 float" style="animation-delay: 4s;"></div>
+        </div>
+
+        <!-- Grid Pattern Overlay -->
+        <div class="absolute inset-0 grid-pattern opacity-30 pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-8 fade-in">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-sm text-gray-300">Top Rated · Available for DevOps &amp; engineering work</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 fade-in" style="animation-delay: 0.2s;">
+                <span class="hero-title">Production-Grade</span>
+                <br>
+                <span class="text-white">Infrastructure &</span>
+                <span class="gradient-text">Engineering</span>
+            </h1>
+
+            <!-- Subheading -->
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 fade-in" style="animation-delay: 0.4s;">
+                We build and secure <span class="gradient-text-cyan font-semibold">scalable cloud infrastructure</span>,
+                harden Linux servers against real-world threats, and deliver
+                <span class="gradient-text font-semibold">full-stack web applications</span> that run reliably in production.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 fade-in" style="animation-delay: 0.6s;">
+                <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-white font-semibold text-lg hover-glow flex items-center justify-center space-x-2">
+                    <span class="flex items-center space-x-2">
+                        <span>Start Your Project</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </span>
+                </a>
+                <a href="#services" class="glass px-8 py-4 rounded-full text-white font-semibold text-lg hover-lift flex items-center justify-center space-x-2 border border-white/10">
+                    <i data-lucide="play-circle" class="w-5 h-5"></i>
+                    <span>Explore Services</span>
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto fade-in" style="animation-delay: 0.8s;">
+                <div class="glass p-6 rounded-2xl hover-lift">
+                    <div class="text-4xl md:text-5xl font-bold stat-number">49+</div>
+                    <div class="text-sm text-gray-400 mt-2">Days Uninterrupted Uptime</div>
+                </div>
+                <div class="glass p-6 rounded-2xl hover-lift">
+                    <div class="text-4xl md:text-5xl font-bold stat-number">2,377</div>
+                    <div class="text-sm text-gray-400 mt-2">Malicious IPs Auto-Blocked</div>
+                </div>
+                <div class="glass p-6 rounded-2xl hover-lift">
+                    <div class="text-4xl md:text-5xl font-bold stat-number">100%</div>
+                    <div class="text-sm text-gray-400 mt-2">UAT Pass Rate</div>
+                </div>
+                <div class="glass p-6 rounded-2xl hover-lift">
+                    <div class="text-4xl md:text-5xl font-bold stat-number">Top Rated</div>
+                    <div class="text-sm text-gray-400 mt-2">Upwork Engineer</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#services" class="text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="chevron-down" class="w-8 h-8"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Trusted By Marquee -->
+    <section class="py-12 border-t border-b border-white/5 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-8">
+            <p class="text-center text-gray-500 text-sm uppercase tracking-widest">Technologies We Work With</p>
+        </div>
+        <div class="relative overflow-hidden">
+            <div class="flex marquee space-x-12">
+                <div class="flex space-x-12 items-center min-w-max">
+                    <span class="text-2xl font-bold text-gray-600">AWS</span>
+                    <span class="text-2xl font-bold text-gray-600">Cloudflare</span>
+                    <span class="text-2xl font-bold text-gray-600">Docker</span>
+                    <span class="text-2xl font-bold text-gray-600">Nginx</span>
+                    <span class="text-2xl font-bold text-gray-600">Ubuntu</span>
+                    <span class="text-2xl font-bold text-gray-600">Terraform</span>
+                    <span class="text-2xl font-bold text-gray-600">Grafana</span>
+                    <span class="text-2xl font-bold text-gray-600">Prometheus</span>
+                    <span class="text-2xl font-bold text-gray-600">PostgreSQL</span>
+                    <span class="text-2xl font-bold text-gray-600">Next.js</span>
+                </div>
+                <div class="flex space-x-12 items-center min-w-max">
+                    <span class="text-2xl font-bold text-gray-600">AWS</span>
+                    <span class="text-2xl font-bold text-gray-600">Cloudflare</span>
+                    <span class="text-2xl font-bold text-gray-600">Docker</span>
+                    <span class="text-2xl font-bold text-gray-600">Nginx</span>
+                    <span class="text-2xl font-bold text-gray-600">Ubuntu</span>
+                    <span class="text-2xl font-bold text-gray-600">Terraform</span>
+                    <span class="text-2xl font-bold text-gray-600">Grafana</span>
+                    <span class="text-2xl font-bold text-gray-600">Prometheus</span>
+                    <span class="text-2xl font-bold text-gray-600">PostgreSQL</span>
+                    <span class="text-2xl font-bold text-gray-600">Next.js</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative">
+        <div class="absolute inset-0 spotlight pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-yellow-400"></i>
+                    <span class="text-sm text-gray-300">Our Services</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-white">Engineering That</span>
+                    <span class="gradient-text">Stays Online</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    From server hardening to full-stack development, we deliver production-grade
+                    infrastructure and applications that businesses depend on every day.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1: DevOps & Cloud Infrastructure -->
+                <div class="service-card glass p-8 rounded-3xl border border-white/5 hover:border-orange-500/30">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-6">
+                        <i data-lucide="cloud-cog" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">DevOps & Cloud Infrastructure</h3>
+                    <p class="text-gray-400 mb-6">
+                        AWS architecture, CI/CD pipelines, Terraform infrastructure-as-code, and
+                        production deployment automation that scales reliably.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>AWS (EC2, S3, VPC, IAM, CloudWatch)</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Terraform & GitLab CI/CD</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Docker & Container Orchestration</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: Linux Server Administration -->
+                <div class="service-card glass p-8 rounded-3xl border border-white/5 hover:border-purple-500/30">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center mb-6 glow-purple">
+                        <i data-lucide="server" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Linux Server Administration</h3>
+                    <p class="text-gray-400 mb-6">
+                        Ubuntu/CentOS setup, Nginx reverse proxy, SSL automation, and
+                        rock-solid server configurations that stay online for months.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Ubuntu 22.04 LTS Hardening</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Nginx & Apache Configuration</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Let's Encrypt SSL Auto-Renewal</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 3: Security & Cloudflare -->
+                <div class="service-card glass p-8 rounded-3xl border border-white/5 hover:border-red-500/30">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Security & Cloudflare</h3>
+                    <p class="text-gray-400 mb-6">
+                        Origin shielding, WAF tuning, firewall whitelisting, and
+                        Fail2Ban hardening to keep bots and attackers out.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Cloudflare Tunnel & WAF Rules</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>UFW Firewall & Fail2Ban</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>SSH Hardening & Audit Logging</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 4: Full-Stack Web Development -->
+                <div class="service-card glass p-8 rounded-3xl border border-white/5 hover:border-cyan-500/30">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 glow-cyan">
+                        <i data-lucide="code-2" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Full-Stack Web Development</h3>
+                    <p class="text-gray-400 mb-6">
+                        Next.js + Node.js applications, PostgreSQL databases, Stripe payments,
+                        and clean API design — built to last.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Next.js, React, Node.js, Express</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>PostgreSQL & Database Design</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Stripe & Third-Party Integrations</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 5: WordPress & PHP -->
+                <div class="service-card glass p-8 rounded-3xl border border-white/5 hover:border-blue-500/30">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-6">
+                        <i data-lucide="globe" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">WordPress & PHP</h3>
+                    <p class="text-gray-400 mb-6">
+                        Custom WordPress development, plugin conflicts, PHP debugging,
+                        and seamless third-party integrations (Stripe, Calendly, Zoom).
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Custom Themes & Plugins</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>PHP Version Migration & Debugging</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Backend & API Integrations</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 6: Monitoring & Observability -->
+                <div class="service-card glass p-8 rounded-3xl border border-white/5 hover:border-green-500/30">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-6">
+                        <i data-lucide="activity" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Monitoring & Observability</h3>
+                    <p class="text-gray-400 mb-6">
+                        Grafana, Prometheus, and Alertmanager stacks — so you know about problems
+                        before your customers do.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Grafana Dashboards & Visualization</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Prometheus Metrics & Alerting</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+                            <span>Log Aggregation & Audit Trails</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Content -->
+                <div>
+                    <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6">
+                        <i data-lucide="building-2" class="w-4 h-4 text-indigo-400"></i>
+                        <span class="text-sm text-gray-300">About SynTechOps</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        <span class="text-white">Infrastructure</span>
+                        <br>
+                        <span class="gradient-text">That Just Works</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 mb-6">
+                        SynTechOps LLC is a Wyoming-registered technology company specializing in
+                        production-grade DevOps, server security, and full-stack web engineering.
+                        We work directly with founders, agencies, and engineering teams to build
+                        infrastructure that stays online and applications that scale.
+                    </p>
+                    <p class="text-lg text-gray-400 mb-8">
+                        Led by Muhammad Jahanzeb — a Top Rated Upwork engineer with verified client
+                        ratings and a track record of fixed-fee delivery without missed deadlines.
+                    </p>
+
+                    <!-- Features -->
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="file-text" class="w-5 h-5 text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Spec-First Delivery</h4>
+                                <p class="text-sm text-gray-500">Written specs before any code is shipped</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Security-Hardened</h4>
+                                <p class="text-sm text-gray-500">WAF, Fail2Ban, SSH lockdown by default</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-pink-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="dollar-sign" class="w-5 h-5 text-pink-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Fixed-Fee Pricing</h4>
+                                <p class="text-sm text-gray-500">No surprise bills, no scope creep</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check-square" class="w-5 h-5 text-green-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Test-Backed Releases</h4>
+                                <p class="text-sm text-gray-500">Every deploy verified by automated tests</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#portfolio" class="btn-primary inline-flex items-center space-x-2 px-6 py-3 rounded-full text-white font-semibold">
+                        <span class="flex items-center space-x-2">
+                            <span>See Recent Projects</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Right: Visual -->
+                <div class="relative">
+                    <!-- Floating Cards -->
+                    <div class="relative h-[600px]">
+                        <!-- Main Card -->
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 glass-strong rounded-3xl p-8 glow-purple flex flex-col items-center justify-center">
+                            <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center mb-4 pulse-glow">
+                                <span class="text-5xl font-bold text-white">S</span>
+                            </div>
+                            <h3 class="text-2xl font-bold gradient-text mb-2">SynTechOps</h3>
+                            <p class="text-gray-400 text-center">Infrastructure That Just Works</p>
+                        </div>
+
+                        <!-- Floating Mini Cards (Real Production Metrics) -->
+                        <div class="absolute top-10 left-0 glass p-4 rounded-2xl float">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
+                                    <i data-lucide="activity" class="w-5 h-5 text-green-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-white">49+ Days Uptime</div>
+                                    <div class="text-xs text-gray-500">Zero downtime</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute top-32 right-0 glass p-4 rounded-2xl float" style="animation-delay: 1s;">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                                    <i data-lucide="shield" class="w-5 h-5 text-cyan-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-white">2,377 Threats</div>
+                                    <div class="text-xs text-gray-500">Auto-blocked</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-32 left-4 glass p-4 rounded-2xl float" style="animation-delay: 2s;">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-white">265/265 Tests</div>
+                                    <div class="text-xs text-gray-500">All passing</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-10 right-8 glass p-4 rounded-2xl float" style="animation-delay: 3s;">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-lg bg-pink-500/20 flex items-center justify-center">
+                                    <i data-lucide="award" class="w-5 h-5 text-pink-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-white">Top Rated</div>
+                                    <div class="text-xs text-gray-500">Upwork Engineer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 relative">
+        <div class="absolute inset-0 spotlight pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6">
+                    <i data-lucide="git-branch" class="w-4 h-4 text-cyan-400"></i>
+                    <span class="text-sm text-gray-300">Our Process</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-white">How We</span>
+                    <span class="gradient-text">Ship Production</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    An engineering-first workflow that delivers fixed-fee projects on time,
+                    with documentation, tests, and zero surprises in production.
+                </p>
+            </div>
+
+            <!-- Process Steps -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="relative">
+                    <div class="glass p-8 rounded-3xl hover-lift border border-white/5">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center mb-6 text-white font-bold text-xl">01</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Scope &amp; Spec</h3>
+                        <p class="text-gray-400 text-sm">
+                            We start with a written specification — endpoints, data models, edge cases, and
+                            acceptance criteria — so there's no ambiguity before code is written.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative">
+                    <div class="glass p-8 rounded-3xl hover-lift border border-white/5">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 text-white font-bold text-xl">02</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Build &amp; Test</h3>
+                        <p class="text-gray-400 text-sm">
+                            Implementation against the spec with unit, integration, and end-to-end tests.
+                            Every PR ships with reproducible build steps and rollback plans.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative">
+                    <div class="glass p-8 rounded-3xl hover-lift border border-white/5">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center mb-6 text-white font-bold text-xl">03</div>
+                        <h3 class="text-xl font-bold text-white mb-3">UAT &amp; Hardening</h3>
+                        <p class="text-gray-400 text-sm">
+                            Full UAT pass on staging, security hardening (WAF, Fail2Ban, SSH lockdown),
+                            and load-tested before anything touches production.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative">
+                    <div class="glass p-8 rounded-3xl hover-lift border border-white/5">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-6 text-white font-bold text-xl">04</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Deploy &amp; Monitor</h3>
+                        <p class="text-gray-400 text-sm">
+                            Zero-downtime deployment with Grafana/Prometheus dashboards, alerting,
+                            and full runbook handover — so your team knows what to do at 3 AM.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6">
+                    <i data-lucide="layers" class="w-4 h-4 text-yellow-400"></i>
+                    <span class="text-sm text-gray-300">Production Stack</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-white">Tools We</span>
+                    <span class="gradient-text">Run In Production</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Every tool below is something we've deployed, hardened, and monitored on real
+                    client infrastructure — not a list of buzzwords.
+                </p>
+            </div>
+
+            <!-- Tech Grid - Categorized -->
+            <div class="space-y-8">
+                <!-- Cloud & Infrastructure -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-lucide="cloud" class="w-4 h-4 text-orange-400"></i>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Cloud &amp; Infrastructure</span>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="cloud" class="w-5 h-5 text-orange-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">AWS</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="server" class="w-5 h-5 text-purple-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Hetzner</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="terminal" class="w-5 h-5 text-amber-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Ubuntu 22.04</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="box" class="w-5 h-5 text-cyan-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Docker</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="file-code" class="w-5 h-5 text-violet-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Terraform</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="git-branch" class="w-5 h-5 text-pink-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">GitHub Actions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security & Networking -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-red-400"></i>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Security &amp; Networking</span>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="shield" class="w-5 h-5 text-orange-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Cloudflare</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="server-cog" class="w-5 h-5 text-emerald-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Nginx</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="server" class="w-5 h-5 text-cyan-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Caddy</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="lock" class="w-5 h-5 text-yellow-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Let's Encrypt</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="ban" class="w-5 h-5 text-red-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Fail2Ban</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="firewall" class="w-5 h-5 text-rose-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">UFW</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monitoring & Observability -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-lucide="activity" class="w-4 h-4 text-green-400"></i>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Monitoring &amp; Observability</span>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5 text-orange-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Grafana</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="flame" class="w-5 h-5 text-red-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Prometheus</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="bell" class="w-5 h-5 text-yellow-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Alertmanager</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="cpu" class="w-5 h-5 text-cyan-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">cAdvisor</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="server" class="w-5 h-5 text-purple-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Node Exporter</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="file-text" class="w-5 h-5 text-blue-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Loki</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages & Frameworks -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-lucide="code-2" class="w-4 h-4 text-blue-400"></i>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Languages &amp; Frameworks</span>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="triangle" class="w-5 h-5 text-white"></i>
+                            <span class="text-sm text-gray-300 font-medium">Next.js</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="atom" class="w-5 h-5 text-cyan-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">React</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="braces" class="w-5 h-5 text-blue-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">TypeScript</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="hexagon" class="w-5 h-5 text-green-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Node.js</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="terminal-square" class="w-5 h-5 text-yellow-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Python</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="file-code-2" class="w-5 h-5 text-indigo-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">PHP 8.1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases & Storage -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-lucide="database" class="w-4 h-4 text-purple-400"></i>
+                        <span class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Databases &amp; Storage</span>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="database" class="w-5 h-5 text-blue-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">PostgreSQL</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="database" class="w-5 h-5 text-green-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">MongoDB</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="database" class="w-5 h-5 text-orange-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">MySQL</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="layers" class="w-5 h-5 text-red-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Redis</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="hard-drive" class="w-5 h-5 text-amber-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">AWS S3</span>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex items-center space-x-3 hover-lift">
+                            <i data-lucide="key" class="w-5 h-5 text-pink-400"></i>
+                            <span class="text-sm text-gray-300 font-medium">Secrets Manager</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio/Case Studies Section -->
+    <section id="portfolio" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6">
+                    <i data-lucide="folder-open" class="w-4 h-4 text-green-400"></i>
+                    <span class="text-sm text-gray-300">Featured Work</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-white">Real Projects,</span>
+                    <span class="gradient-text">Real Results</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Production deployments, live infrastructure, and shipped applications —
+                    here are the projects we've delivered.
+                </p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Featured: Regentic -->
+                <div class="glass rounded-3xl overflow-hidden hover-lift border border-purple-500/30 md:col-span-2 lg:col-span-3 relative">
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-full font-semibold flex items-center space-x-1">
+                        <i data-lucide="star" class="w-3 h-3 fill-yellow-400"></i>
+                        <span>Featured Case Study</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="h-64 md:h-auto bg-gradient-to-br from-indigo-700 via-purple-700 to-pink-700 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 grid-pattern opacity-20"></div>
+                            <div class="relative text-center p-8">
+                                <i data-lucide="server-cog" class="w-24 h-24 text-white/80 mx-auto mb-4"></i>
+                                <div class="text-white font-bold text-2xl">Regentic</div>
+                                <div class="text-white/70 text-sm mt-1">SaaS AI Agent Platform</div>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">Infrastructure</span>
+                                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full">DevOps</span>
+                                <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Security</span>
+                                <span class="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full">Monitoring</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Multi-Tenant SaaS Infrastructure & Security Hardening</h3>
+                            <p class="text-gray-400 mb-4">
+                                Full production infrastructure for a multi-tenant AI agent platform across two bare-metal servers.
+                                Delivered Docker-based container provisioning, Nginx wildcard subdomain routing, Cloudflare DNS-01 wildcard SSL,
+                                full security hardening, and a complete Grafana/Prometheus monitoring stack.
+                            </p>
+                            <div class="grid grid-cols-3 gap-4 mb-6">
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text">49+</div>
+                                    <div class="text-xs text-gray-500">Days Uptime</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text">2,377</div>
+                                    <div class="text-xs text-gray-500">Threats Blocked</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text">23/23</div>
+                                    <div class="text-xs text-gray-500">UAT Passed</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 mb-2"><strong class="text-gray-300">Stack:</strong> Ubuntu 22.04 · Docker · Nginx · Cloudflare · Let's Encrypt · Grafana · Prometheus · Fail2Ban · UFW</div>
+                            <div class="text-sm text-gray-500"><strong class="text-gray-300">Scope:</strong> Multi-tenant SaaS Infrastructure · Production Deployment · 2026</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Baxter Shipment Analytics Pipeline -->
+                <div class="glass rounded-3xl overflow-hidden hover-lift border border-cyan-500/30 md:col-span-2 relative">
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full font-semibold flex items-center space-x-1">
+                        <i data-lucide="zap" class="w-3 h-3"></i>
+                        <span>Live Production</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="h-64 md:h-auto bg-gradient-to-br from-cyan-700 via-blue-700 to-indigo-700 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 grid-pattern opacity-20"></div>
+                            <div class="relative text-center p-8">
+                                <i data-lucide="database" class="w-24 h-24 text-white/80 mx-auto mb-4"></i>
+                                <div class="text-white font-bold text-2xl">Baxter</div>
+                                <div class="text-white/70 text-sm mt-1">Shipment Analytics Pipeline</div>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full">AWS</span>
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">Terraform</span>
+                                <span class="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full">Grafana</span>
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">Python</span>
+                                <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Docker</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Automated Shipment Data Pipeline & Analytics</h3>
+                            <p class="text-gray-400 mb-4">
+                                End-to-end data pipeline for Baxter International — automatically ingests shipment Excel/CSV files from Microsoft 365 email (Graph API),
+                                parses and deduplicates records into PostgreSQL, and serves 5 live Grafana dashboards.
+                                Fully automated AWS EC2 deployment via GitHub Actions + Terraform with AWS Secrets Manager integration.
+                            </p>
+                            <div class="grid grid-cols-3 gap-4 mb-6">
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text-cyan">5</div>
+                                    <div class="text-xs text-gray-500">Live Dashboards</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text-cyan">30min</div>
+                                    <div class="text-xs text-gray-500">Auto Email Poll</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text-cyan">100%</div>
+                                    <div class="text-xs text-gray-500">IaC Automated</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 mb-2"><strong class="text-gray-300">Stack:</strong> Python · Docker · PostgreSQL · Grafana · AWS EC2 · Terraform · GitHub Actions · Secrets Manager · Microsoft Graph API</div>
+                            <div class="text-sm text-gray-500"><strong class="text-gray-300">Client:</strong> Baxter International · Data Engineering · 2026</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: PFM (Portland Flower Market) Renewal Rebuild -->
+                <div class="glass rounded-3xl overflow-hidden hover-lift border border-pink-500/30 md:col-span-2 relative">
+                    <div class="absolute top-4 right-4 px-3 py-1 bg-emerald-500/20 text-emerald-300 text-xs rounded-full font-semibold flex items-center space-x-1">
+                        <i data-lucide="check-circle-2" class="w-3 h-3"></i>
+                        <span>Phase 2 Complete · Staging Verified</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="h-64 md:h-auto bg-gradient-to-br from-pink-700 via-rose-700 to-purple-700 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 grid-pattern opacity-20"></div>
+                            <div class="relative text-center p-8">
+                                <i data-lucide="flower-2" class="w-24 h-24 text-white/80 mx-auto mb-4"></i>
+                                <div class="text-white font-bold text-2xl">PFM</div>
+                                <div class="text-white/70 text-sm mt-1">Portland Flower Market — Renewal Rebuild</div>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-xs rounded-full">PHP 8.1</span>
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">MySQL</span>
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">Stripe</span>
+                                <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Security</span>
+                                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full">Nginx</span>
+                                <span class="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full">DevOps</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Customer Renewal Flow Rebuild — Member Portal &amp; Payment Pipeline</h3>
+                            <p class="text-gray-400 mb-4">
+                                Complete rebuild of a wholesale flower market's annual member-renewal flow, replacing an
+                                82,000-line legacy ScriptCase implementation with a clean modern PHP backend. Authored
+                                the full Phase 1 specification (38-table spec doc covering 8 wizard steps, state machine,
+                                pricing logic, validation rules, error handling, and security model) and then shipped
+                                Phase 2: token validation, draft auto-save, buyer CRUD with soft-delete history, document
+                                upload pipeline (UUID-named storage, MIME-validated from file content), Stripe Checkout
+                                integration with HMAC-verified webhooks, idempotent payment handling, CSRF protection,
+                                race-protected cap enforcement, and a per-session state machine. Hardened the staging
+                                deployment with proper nginx access-control rules and PHP-FPM permissions. All 265 tests
+                                passing across unit, integration, HTTP end-to-end, and security suites — zero failures —
+                                and the existing 9,758-customer production database verified untouched.
+                            </p>
+                            <div class="grid grid-cols-3 gap-4 mb-6">
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text">265/265</div>
+                                    <div class="text-xs text-gray-500">Tests Passing</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text">18</div>
+                                    <div class="text-xs text-gray-500">Audit Fixes Shipped</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text">0</div>
+                                    <div class="text-xs text-gray-500">Existing Tables Modified</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 mb-2"><strong class="text-gray-300">Stack:</strong> PHP 8.1 · MySQL · PDO · Stripe Checkout · HMAC Webhook Verification · Nginx · PHP-FPM · Git/GitHub · Ubuntu 22.04</div>
+                            <div class="text-sm text-gray-500"><strong class="text-gray-300">Client:</strong> Portland Flower Market · Full-Stack Rebuild · 2026</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Rukhsati — Pakistan's Wedding Marketplace -->
+                <div class="glass rounded-3xl overflow-hidden hover-lift border border-amber-500/30 md:col-span-2 lg:col-span-3 relative">
+                    <a href="https://ruksati.com" target="_blank" rel="noopener" class="absolute top-4 right-4 px-3 py-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs rounded-full font-semibold flex items-center space-x-1 transition-colors">
+                        <i data-lucide="zap" class="w-3 h-3"></i>
+                        <span>Live · ruksati.com</span>
+                        <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                    </a>
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="h-64 md:h-auto bg-gradient-to-br from-red-900 via-rose-800 to-amber-700 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 grid-pattern opacity-20"></div>
+                            <div class="relative text-center p-8">
+                                <div class="text-6xl mb-3">💍</div>
+                                <div class="text-white font-bold text-3xl mb-1">Rukhsati</div>
+                                <div class="text-white/70 text-sm">Pakistan's Wedding Marketplace</div>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap items-center gap-2 mb-4">
+                                <span class="px-3 py-1 bg-rose-500/20 text-rose-300 text-xs rounded-full">Next.js 16</span>
+                                <span class="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full">MongoDB</span>
+                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 text-xs rounded-full">PWA / TWA</span>
+                                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full">Hetzner ARM</span>
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">Full-Stack</span>
+                                <span class="px-3 py-1 bg-red-500/20 text-red-300 text-xs rounded-full">DevOps</span>
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">Security</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">End-to-End Marketplace Platform + Native Android App</h3>
+                            <p class="text-gray-400 mb-4">
+                                Designed, built, and shipped a complete production marketplace for Pakistan's wedding wear resale market.
+                                Server-rendered Next.js 16 application with MongoDB, listing management, real-time chat with per-listing
+                                unread indicators, secure JWT auth with mandatory email verification, password reset flows, image
+                                optimization (Sharp + WebP), rate-limited APIs, and a polished admin panel. Deployed to a Hetzner
+                                ARM (CAX11) instance with Caddy reverse-proxy auto-fetching Let's Encrypt SSL on a custom domain.
+                                Configured Resend with full DKIM/SPF/DMARC domain verification for transactional emails (welcome,
+                                verification, password reset, chat notifications). Generated a Trusted Web Activity (TWA) Android
+                                package via Bubblewrap — production-signed APK + AAB ready for Google Play submission. Hardened
+                                with idempotency-aware payments hook for JazzCash, anti-enumeration on password reset, ObjectId
+                                casting across chat endpoints, and 29/29 automated smoke tests passing on every deploy.
+                            </p>
+                            <div class="grid grid-cols-3 gap-4 mb-6">
+                                <div>
+                                    <div class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-rose-400 bg-clip-text text-transparent">29/29</div>
+                                    <div class="text-xs text-gray-500">Smoke Tests Pass</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-rose-400 bg-clip-text text-transparent">€5/mo</div>
+                                    <div class="text-xs text-gray-500">Total Hosting Cost</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-rose-400 bg-clip-text text-transparent">1.2 MB</div>
+                                    <div class="text-xs text-gray-500">Signed Android APK</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 mb-2"><strong class="text-gray-300">Stack:</strong> Next.js 16 · React 19 · TypeScript · MongoDB · Mongoose · Tailwind · Zod · Resend · JazzCash · Caddy · Let's Encrypt · Hetzner ARM (Ubuntu 22.04) · PM2 · Sharp · Bubblewrap · PWA Service Worker · Cloudflare DNS</div>
+                            <div class="text-sm text-gray-500"><strong class="text-gray-300">Scope:</strong> Full-stack architecture · DevOps · Email infra · Mobile (TWA) · Security hardening · 2026</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Cloudflare Hardening -->
+                <div class="glass rounded-3xl overflow-hidden hover-lift border border-white/5">
+                    <div class="h-48 bg-gradient-to-br from-orange-600 via-red-600 to-rose-600 flex items-center justify-center">
+                        <i data-lucide="shield" class="w-20 h-20 text-white/30"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Security</span>
+                            <span class="px-3 py-1 bg-red-500/20 text-red-300 text-xs rounded-full">Cloudflare</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Cloudflare Origin Shielding & WAF Tuning</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            UFW whitelist to Cloudflare IPs, WAF managed ruleset tuning, custom rate limiting on heavy endpoints, and Nginx real-IP restoration.
+                        </p>
+                        <div class="text-xs text-gray-500">Security Engineering · 2026</div>
+                    </div>
+                </div>
+
+                <!-- Project: AWS Cloud Infrastructure -->
+                <div class="glass rounded-3xl overflow-hidden hover-lift border border-white/5">
+                    <div class="h-48 bg-gradient-to-br from-amber-600 via-orange-600 to-yellow-600 flex items-center justify-center">
+                        <i data-lucide="cloud" class="w-20 h-20 text-white/30"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">AWS</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">DevOps</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">AWS Workstation Environments</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            High-performance EC2 instances optimized for browser-heavy workloads, Parsec remote desktop, Elastic IPs, and CloudWatch monitoring.
+                        </p>
+                        <div class="text-xs text-gray-500">Cloud Infrastructure · 2026</div>
+                    </div>
+                </div>
+
+                <!-- Project: WordPress + Stripe Integration -->
+                <div class="glass rounded-3xl overflow-hidden hover-lift border border-white/5">
+                    <div class="h-48 bg-gradient-to-br from-blue-600 via-cyan-600 to-teal-600 flex items-center justify-center">
+                        <i data-lucide="globe" class="w-20 h-20 text-white/30"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">WordPress</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full">Stripe</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">WordPress Multi-Platform Integration</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            WordPress site with Calendly bookings, Zoom auto-generation, Stripe payment processing, and GoDaddy hosting configuration.
+                        </p>
+                        <div class="text-xs text-gray-500">Web Development · 2026</div>
+                    </div>
+                </div>
+
+                <!-- Project: Server Monitoring Stack -->
+                <div class="glass rounded-3xl overflow-hidden hover-lift border border-white/5">
+                    <div class="h-48 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 flex items-center justify-center">
+                        <i data-lucide="bar-chart-3" class="w-20 h-20 text-white/30"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="px-3 py-1 bg-green-500/20 text-green-300 text-xs rounded-full">Monitoring</span>
+                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-full">Observability</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Production Monitoring Stack</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Grafana, Prometheus, cAdvisor, Node Exporter, and Alertmanager — 149-panel dashboard with alerting on container, CPU, RAM, and disk thresholds.
+                        </p>
+                        <div class="text-xs text-gray-500">DevOps · 2026</div>
+                    </div>
+                </div>
+
+                <!-- Project: PHP Debugging -->
+                <div class="glass rounded-3xl overflow-hidden hover-lift border border-white/5">
+                    <div class="h-48 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 flex items-center justify-center">
+                        <i data-lucide="code-2" class="w-20 h-20 text-white/30"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-xs rounded-full">PHP</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">Debugging</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">WordPress PHP Version Migration</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Resolved post-upgrade plugin conflicts and theme incompatibilities, restoring blog layout and sidebar functionality on a high-traffic site.
+                        </p>
+                        <div class="text-xs text-gray-500">PHP Development · 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 relative">
+        <div class="absolute inset-0 spotlight pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6">
+                    <i data-lucide="message-circle-heart" class="w-4 h-4 text-pink-400"></i>
+                    <span class="text-sm text-gray-300">Client Testimonials</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-white">What Clients</span>
+                    <span class="gradient-text">Say About Us</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-3xl hover-lift border border-white/5">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Working with you has been amazing. The infrastructure was set up exactly to spec,
+                        documentation was thorough, and every UAT test passed on the first run. Highly recommended."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold">R</div>
+                        <div>
+                            <div class="font-semibold text-white">Regentic</div>
+                            <div class="text-sm text-gray-500">SaaS Platform · Infrastructure Setup</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-3xl hover-lift border border-white/5">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Clear communication, fast turnaround, and zero downtime during the migration.
+                        The monitoring dashboard he set up gives us full visibility — exactly what we needed."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold">DV</div>
+                        <div>
+                            <div class="font-semibold text-white">DevOps Client</div>
+                            <div class="text-sm text-gray-500">Cloud Migration Project</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-3xl hover-lift border border-white/5">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Diagnosed our PHP issue in under an hour and fixed it cleanly. Knew exactly
+                        where to look and explained the root cause clearly. Will work with again."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white font-bold">WP</div>
+                        <div>
+                            <div class="font-semibold text-white">WordPress Client</div>
+                            <div class="text-sm text-gray-500">PHP Migration & Debugging</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass-strong rounded-3xl p-12 md:p-16 relative overflow-hidden border border-purple-500/20">
+                <!-- Background Effects -->
+                <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-20"></div>
+                <div class="absolute bottom-0 left-0 w-96 h-96 bg-pink-500 rounded-full mix-blend-screen filter blur-3xl opacity-20"></div>
+
+                <div class="relative grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left -->
+                    <div>
+                        <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6">
+                            <i data-lucide="rocket" class="w-4 h-4 text-pink-400"></i>
+                            <span class="text-sm text-gray-300">Ready to Transform?</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                            <span class="text-white">Got a Server,</span>
+                            <span class="gradient-text">Deploy, or Bug</span>
+                            <span class="text-white">to Tame?</span>
+                        </h2>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Tell us about your infrastructure, deployment, or full-stack project.
+                            Free 30-minute scoping call — no obligation, just honest engineering advice.
+                        </p>
+
+                        <!-- Contact Info -->
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                                    <i data-lucide="mail" class="w-5 h-5 text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500">Email Us</div>
+                                    <div class="text-white font-semibold">hello@syntechops.com</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                                    <i data-lucide="phone" class="w-5 h-5 text-cyan-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500">Call Us</div>
+                                    <div class="text-white font-semibold">+92 313 2618799</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-pink-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500">Headquarters</div>
+                                    <div class="text-white font-semibold">Wyoming, USA</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <div class="glass-strong p-8 rounded-3xl border border-white/10">
+                        <h3 class="text-2xl font-bold text-white mb-6">Send us a message</h3>
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Full Name</label>
+                                <input type="text" placeholder="John Doe" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Email Address</label>
+                                <input type="email" placeholder="john@company.com" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Service Interested In</label>
+                                <select class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-purple-500 transition-colors">
+                                    <option class="bg-gray-900">DevOps &amp; Cloud Infrastructure</option>
+                                    <option class="bg-gray-900">Linux Server Administration</option>
+                                    <option class="bg-gray-900">Security &amp; Cloudflare Hardening</option>
+                                    <option class="bg-gray-900">Full-Stack Web Development</option>
+                                    <option class="bg-gray-900">WordPress &amp; PHP</option>
+                                    <option class="bg-gray-900">Monitoring &amp; Observability</option>
+                                    <option class="bg-gray-900">Other / Not Sure Yet</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Project Details</label>
+                                <textarea rows="4" placeholder="Tell us about your project..." class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full py-4 rounded-xl text-white font-semibold text-lg">
+                                <span class="flex items-center justify-center space-x-2">
+                                    <span>Send Message</span>
+                                    <i data-lucide="send" class="w-5 h-5"></i>
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center font-bold text-white text-xl glow">
+                            S
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold gradient-text">SynTechOps</div>
+                            <div class="text-xs text-gray-400 -mt-1">LLC</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Production-grade DevOps, server security, and full-stack engineering for
+                        founders and teams who can't afford downtime. Wyoming-registered, globally trusted.
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" class="w-10 h-10 rounded-lg glass flex items-center justify-center hover:bg-purple-500/20 transition-colors">
+                            <i data-lucide="twitter" class="w-4 h-4 text-gray-400"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg glass flex items-center justify-center hover:bg-purple-500/20 transition-colors">
+                            <i data-lucide="linkedin" class="w-4 h-4 text-gray-400"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg glass flex items-center justify-center hover:bg-purple-500/20 transition-colors">
+                            <i data-lucide="github" class="w-4 h-4 text-gray-400"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg glass flex items-center justify-center hover:bg-purple-500/20 transition-colors">
+                            <i data-lucide="instagram" class="w-4 h-4 text-gray-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#services" class="hover:text-purple-400 transition-colors">DevOps &amp; Cloud Infrastructure</a></li>
+                        <li><a href="#services" class="hover:text-purple-400 transition-colors">Linux Server Administration</a></li>
+                        <li><a href="#services" class="hover:text-purple-400 transition-colors">Security &amp; Cloudflare</a></li>
+                        <li><a href="#services" class="hover:text-purple-400 transition-colors">Full-Stack Development</a></li>
+                        <li><a href="#services" class="hover:text-purple-400 transition-colors">WordPress &amp; PHP</a></li>
+                        <li><a href="#services" class="hover:text-purple-400 transition-colors">Monitoring &amp; Observability</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#about" class="hover:text-purple-400 transition-colors">About Us</a></li>
+                        <li><a href="#portfolio" class="hover:text-purple-400 transition-colors">Portfolio</a></li>
+                        <li><a href="#process" class="hover:text-purple-400 transition-colors">Our Process</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition-colors">Careers</a></li>
+                        <li><a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">Stay Updated</h4>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Subscribe to our newsletter for the latest insights and updates.
+                    </p>
+                    <form class="space-y-3" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <input type="email" placeholder="Your email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 text-sm">
+                        <button type="submit" class="btn-primary w-full py-3 rounded-xl text-white font-semibold text-sm">
+                            <span>Subscribe</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
+                <p class="text-sm text-gray-500">
+                    © 2026 SynTechOps LLC. All rights reserved.
+                </p>
+                <div class="flex items-center space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-sm text-gray-500 hover:text-purple-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-500 hover:text-purple-400 transition-colors">Terms of Service</a>
+                    <a href="#" class="text-sm text-gray-500 hover:text-purple-400 transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn?.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        closeMenu?.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        // Close mobile menu when clicking links
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animated counter for stats
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add scroll effect to navigation
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                nav.classList.add('shadow-2xl');
+            } else {
+                nav.classList.remove('shadow-2xl');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Create particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            const size = Math.random() * 4 + 1;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+
+            const startX = Math.random() * window.innerWidth;
+            particle.style.left = startX + 'px';
+            particle.style.top = window.innerHeight + 'px';
+
+            const duration = Math.random() * 5 + 5;
+            particle.style.transition = `all ${duration}s linear`;
+
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.style.top = '-10px';
+                particle.style.opacity = '0';
+            }, 100);
+
+            setTimeout(() => {
+                particle.remove();
+            }, duration * 1000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 1000);
+    </script>
+</body>
+</html>
