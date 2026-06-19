@@ -10,11 +10,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🚀</text></svg>">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS (self-hosted for reliability — CDN was failing intermittently) -->
+    <script src="/tailwind.js" onerror="this.onerror=null;this.src='https://cdn.tailwindcss.com';"></script>
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Lucide Icons (self-hosted with CDN fallback) -->
+    <script src="/lucide.js" onerror="this.onerror=null;this.src='https://unpkg.com/lucide@latest/dist/umd/lucide.js';"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
